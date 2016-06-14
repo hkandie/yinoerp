@@ -1,0 +1,24 @@
+php yii gii/module --moduleID=block --moduleClass="common\modules\block\Block"
+yes
+php yii gii/module --moduleID=coa --moduleClass="common\modules\coa\Coa"
+yes
+php yii gii/module --moduleID=content --moduleClass="common\modules\content\Content"
+yes
+php yii gii/module --moduleID=cst --moduleClass="common\modules\cst\Cst"
+yes
+php yii gii/module --moduleID=ext --moduleClass="common\modules\ext\Ext"
+yes
+php yii gii/module --moduleID=option --moduleClass="common\modules\option\Option"
+yes
+php yii gii/module --moduleID=payment --moduleClass="common\modules\payment\Payment"
+yes
+php yii gii/module --moduleID=supplier --moduleClass="common\modules\supplier\Supplier"
+yes
+php yii gii/module --moduleID=address --moduleClass="common\modules\address\Address"
+yes
+php yii gii/module --moduleID=category --moduleClass="common\modules\category\Category"
+yes
+php yii gii/module --moduleID=file --moduleClass="common\modules\file\"
+yes
+php yii gii/module --moduleID=item --moduleClass="common\modules\item\Item"
+yes
