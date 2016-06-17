@@ -1,27 +1,9 @@
-php yii gii/module --moduleID=business --moduleClass="common\modules\business\Business"
-yes
-php yii gii/module --moduleID=comment --moduleClass="common\modules\comment\Comment"
-yes
-php yii gii/module --moduleID=common --moduleClass="common\modules\common\Common"
-yes
-php yii gii/module --moduleID=engine --moduleClass="common\modules\engine\Engine"
-yes
-php yii gii/module --moduleID=enterprise --moduleClass="common\modules\enterprise\Enterprise"
-yes
-php yii gii/module --moduleID=form --moduleClass="common\modules\form\Form"
-yes
-php yii gii/module --moduleID=inventory --moduleClass="common\modules\inventory\Inventory"
-yes
-php yii gii/module --moduleID=legal --moduleClass="common\modules\legal\Legal"
-yes
-php yii gii/module --moduleID=locator --moduleClass="common\modules\locator\Locator"
-yes
-php yii gii/module --moduleID=migration --moduleClass="common\modules\migration\Migration"
-yes
-php yii gii/module --moduleID=module --moduleClass="common\modules\module\Module"
-yes
-php yii gii/module --moduleID=onhand --moduleClass="common\modules\onhand\Onhand"
-yes
-php yii gii/module --moduleID=org --moduleClass="common\modules\org\Org"
-yes
-
+php yii gii/crud --controllerClass : common\modules\address\controllers\Controller --modelClass: common\modules\address\models\
+php yii gii/crud --controllerClass : common\modules\address\controllers\Controller --modelClass: common\modules\address\models\
+php yii gii/crud --controllerClass : common\modules\address\controllers\AddressReferenceController --modelClass: common\modules\address\models\AddressReference
+php yii gii/crud --controllerClass : common\modules\adm\controllers\Controller --modelClass: common\modules\adm\models\
+php yii gii/crud --controllerClass : common\modules\adm\controllers\Controller --modelClass: common\modules\adm\models\
+php yii gii/crud --controllerClass : common\modules\adm\controllers\AdmTaskStatusController --modelClass: common\modules\adm\models\AdmTaskStatus
+php yii gii/crud --controllerClass : common\modules\adm\controllers\AdmTaskTemplateHeaderController --modelClass: common\modules\adm\models\AdmTaskTemplateHeader
+php yii gii/crud --controllerClass : common\modules\adm\controllers\AdmTaskTemplateLineController --modelClass: common\modules\adm\models\AdmTaskTemplateLine
+php yii gii/crud --controllerClass : common\modules\adm\controllers\AdmTaskTypeController --modelClass: common\modules\adm\models\AdmTaskType

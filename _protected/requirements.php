@@ -1,97 +1,75 @@
-<?php
-/**
- * Application requirement checker script.
- *
- * In order to run this script use the following console command:
- * php requirements.php
- *
- * In order to run this script from the web, you should copy it to the web root.
- * If you are using Linux you can create a hard link instead, 
- * using the following command: ln requirements.php ../requirements.php
- */
+$ php yii help gii/crud
 
-// you may need to adjust this path to the correct Yii framework path
-$frameworkPath = dirname(__FILE__) . '/vendor/yiisoft/yii2';
+DESCRIPTION
 
-if (!is_dir($frameworkPath)) {
-    echo '<h1>Error</h1>';
-    echo '<p><strong>The path to yii framework seems to be incorrect.</strong></p>';
-    echo '<p>You need to install Yii framework via composer or adjust the framework path in file <abbr title="' . __FILE__ . '">' . basename(__FILE__) . '</abbr>.</p>';
-    echo '<p>Please refer to the <abbr title="' . dirname(__FILE__) . '/README.md">README</abbr> on how to install Yii.</p>';
-}
+This generator generates a controller and views that implement CRUD
+(Create, Read, Update, Delete) operations for the specified data model.
 
-require_once($frameworkPath . '/requirements/YiiRequirementChecker.php');
-$requirementsChecker = new YiiRequirementChecker();
 
-/**
- * Adjust requirements according to your application specifics.
- * 
- * @var array
- */
-$requirements = array(
-    // Database :
-    array(
-        'name' => 'PDO extension',
-        'mandatory' => true,
-        'condition' => extension_loaded('pdo'),
-        'by' => 'All DB-related classes',
-    ),
-    array(
-        'name' => 'PDO SQLite extension',
-        'mandatory' => false,
-        'condition' => extension_loaded('pdo_sqlite'),
-        'by' => 'All DB-related classes',
-        'memo' => 'Required for SQLite database.',
-    ),
-    array(
-        'name' => 'PDO MySQL extension',
-        'mandatory' => false,
-        'condition' => extension_loaded('pdo_mysql'),
-        'by' => 'All DB-related classes',
-        'memo' => 'Required for MySQL database.',
-    ),
-    array(
-        'name' => 'PDO PostgreSQL extension',
-        'mandatory' => false,
-        'condition' => extension_loaded('pdo_pgsql'),
-        'by' => 'All DB-related classes',
-        'memo' => 'Required for PostgreSQL database.',
-    ),
-    // Cache :
-    array(
-        'name' => 'Memcache extension',
-        'mandatory' => false,
-        'condition' => extension_loaded('memcache') || extension_loaded('memcached'),
-        'by' => '<a href="http://www.yiiframework.com/doc-2.0/yii-caching-memcache.html">MemCache</a>',
-        'memo' => extension_loaded('memcached') ? 'To use memcached set <a href="http://www.yiiframework.com/doc-2.0/yii-caching-memcache.html#$useMemcached-detail">MemCache::useMemcached</a> to <code>true</code>.' : ''
-    ),
-    array(
-        'name' => 'APC extension',
-        'mandatory' => false,
-        'condition' => extension_loaded('apc'),
-        'by' => '<a href="http://www.yiiframework.com/doc-2.0/yii-caching-apccache.html">ApcCache</a>',
-    ),
-    // PHP ini :
-    'phpExposePhp' => array(
-        'name' => 'Expose PHP',
-        'mandatory' => false,
-        'condition' => $requirementsChecker->checkPhpIniOff("expose_php"),
-        'by' => 'Security reasons',
-        'memo' => '"expose_php" should be disabled at php.ini',
-    ),
-    'phpAllowUrlInclude' => array(
-        'name' => 'PHP allow url include',
-        'mandatory' => false,
-        'condition' => $requirementsChecker->checkPhpIniOff("allow_url_include"),
-        'by' => 'Security reasons',
-        'memo' => '"allow_url_include" should be disabled at php.ini',
-    ),
-    'phpSmtp' => array(
-        'name' => 'PHP mail SMTP',
-        'mandatory' => false,
-        'condition' => strlen(ini_get('SMTP')) > 0,
-        'by' => 'Email sending',
-        'memo' => 'PHP mail SMTP server required',
-    ),
-);
-$requirementsChecker->checkYii()->check($requirements)->render();
+USAGE
+
+yii gii/crud [...options...]
+
+
+OPTIONS
+
+--appconfig: string
+  custom application configuration file path.
+  If not set, default application configuration is used.
+
+--baseControllerClass: string (defaults to 'yii\web\Controller')
+  This is the class that the new CRUD controller class will extend from. You
+  should provide a fully qualified class name, e.g., yii\web\Controller.
+
+--color: boolean, 0 or 1
+  whether to enable ANSI color in the output.
+  If not set, ANSI color will only be enabled for terminals that support it.
+
+--controllerClass (required): string
+  This is the name of the controller class to be generated. You should
+  provide a fully qualified namespaced class (e.g.
+  app\controllers\PostController), and class name should be in CamelCase with
+  an uppercase first letter. Make sure the class is using the same namespace
+  as specified by your application's controllerNamespace property.
+
+--enableI18N: boolean, 0 or 1 (defaults to 0)
+  This indicates whether the generator should generate strings using Yii::t()
+  method. Set this to true if you are planning to make your application
+  translatable.
+
+--enablePjax: boolean, 0 or 1 (defaults to 0)
+  This indicates whether the generator should wrap the GridView or ListView
+  widget on the index page with yii\widgets\Pjax widget. Set this to true if
+  you want to get sorting, filtering and pagination without page refreshing.
+
+--indexWidgetType: string (defaults to 'grid')
+  This is the widget type to be used in the index page to display list of the
+  models. You may choose either GridView or ListView
+
+--interactive: boolean, 0 or 1 (defaults to 1)
+  whether to run the command interactively.
+
+--messageCategory: string (defaults to 'app')
+  This is the category used by Yii::t() in case you enable I18N.
+
+--modelClass (required): string
+  This is the ActiveRecord class associated with the table that CRUD will be
+  built upon. You should provide a fully qualified class name, e.g.,
+  app\models\Post.
+
+--overwrite: boolean, 0 or 1 (defaults to 0)
+  whether to overwrite all existing code files when in non-interactive mode.
+  Defaults to false, meaning none of the existing code files will be overwritten.
+  This option is used only when `--interactive=0`.
+
+--searchModelClass: string (defaults to '')
+  This is the name of the search model class to be generated. You should
+  provide a fully qualified namespaced class name, e.g.,
+  app\models\PostSearch.
+
+--template: string (defaults to 'default')
+
+--viewPath: string
+  Specify the directory for storing the view scripts for the controller. You
+  may use path alias here, e.g., /var/www/basic/controllers/views/post,
+  @app/views/post. If not set, it will default to @app/views/ControllerID
