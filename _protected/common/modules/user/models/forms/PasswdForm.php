@@ -8,18 +8,18 @@ use yii\base\Model;
 /**
  * LoginForm is the model behind the login form.
  */
-class LoginForm extends Model {
+class PasswdForm extends Model {
 
     /**
      * @var string Username and/or email
      */
-    public $oldpassoword;
-    public $newpassoword;
+    public $oldpassword;
+    public $newpassword;
     public $password;
     public function rules() {
         return [
-            [["oldpassoword", "password", "newpassoword"], "required"],
-            ["oldpassoword", "validatePassword"]
+            [["oldpassword", "password", "newpassword"], "required"],
+            ["oldpassword", "validatePassword"]
         ];
     }
 
@@ -71,17 +71,12 @@ class LoginForm extends Model {
      * @inheritdoc
      */
     public function attributeLabels() {
-        // calculate attribute label for "username"
-        if (Yii::$app->getModule("user")->loginEmail && Yii::$app->getModule("user")->loginUsername) {
-            $attribute = "Email / Username";
-        } else {
-            $attribute = Yii::$app->getModule("user")->loginEmail ? "Email" : "Username";
-        }
+       
 
         return [
-            "username" => Yii::t("user", $attribute),
-            "password" => Yii::t("user", "Password"),
-            "rememberMe" => Yii::t("user", "Remember Me"),
+            "oldpassword" => Yii::t("user", "Your current password"),
+            "password" => Yii::t("user", "New Password"),
+            "newpassword" => Yii::t("user", "Repeat Password"),
         ];
     }
 

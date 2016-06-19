@@ -78,10 +78,10 @@ class AdminController extends Controller {
 
         $post = Yii::$app->request->post();
         if ($user->load($post) && $user->validate() && $profile->load($post) && $profile->validate()) {
-           $user->user_type="U";
+            $user->user_type = "U";
             $user->save(false);
             $profile->setUser($user->id)->save(false);
-            $formDetails = Yii::$app->request->post('UsersOffice');            
+            $formDetails = Yii::$app->request->post('UsersOffice');
             foreach ($formDetails as $i => $formDetail) {
                 foreach ($formDetail as $detail) {
                     for ($x = 0; $x < count($detail); $x++) {
@@ -118,7 +118,6 @@ class AdminController extends Controller {
         $user = $this->findModel($id);
         $user->setScenario("admin");
         $profile = $user->profile;
-        $userBranch = new UsersOffice();
 
         // load post data and validate
         $post = Yii::$app->request->post();
@@ -126,31 +125,11 @@ class AdminController extends Controller {
         if ($user->load($post) && $user->validate() && $profile->load($post) && $profile->validate()) {
             $user->save(false);
             $profile->setUser($user->id)->save(false);
-            $formDetails = Yii::$app->request->post('UsersOffice');
-            UsersOffice::deleteAll('user_id =' . $user->user_id);
-            foreach ($formDetails as $i => $formDetail) {
-                foreach ($formDetail as $detail) {
-                    for ($x = 0; $x < count($detail); $x++) {
-                        if (isset($detail[$x])) {
-                            $userBranch = new UsersOffice();
-                            $userBranch->user_id = $user->user_id;
-                            $userBranch->office_id = $detail[$x];
-                            $userBranch->save(false);
-                        }
-                    }
-                }
-            }
-
-
-            return $this->redirect(['view', 'id' => $user->id]);
         }
-
-
         // render
         return $this->render('update', [
                     'user' => $user,
                     'profile' => $profile,
-                    'userBranch' => $userBranch,
         ]);
     }
 

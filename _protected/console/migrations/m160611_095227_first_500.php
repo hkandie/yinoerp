@@ -1845,122 +1845,7 @@ if ($dbType == "mysql") {
 }
  
 /* MYSQL */
-if (!in_array('tm_cargo', $tables))  { 
-if ($dbType == "mysql") {
-	$this->createTable('{{%tm_cargo}}', [
-		'id' => 'INT(11) NOT NULL AUTO_INCREMENT',
-		0 => 'PRIMARY KEY (`id`)',
-		'user_id' => 'VARCHAR(20) NULL DEFAULT \'1\'',
-		'cargo_id' => 'VARCHAR(20) NULL DEFAULT \'1\'',
-		'from_company' => 'VARCHAR(20) NOT NULL',
-		'from_street' => 'VARCHAR(15) NOT NULL',
-		'from_address_nr' => 'INT(10) NOT NULL',
-		'from_zipcode' => 'VARCHAR(10) NOT NULL',
-		'from_city' => 'TEXT NULL',
-		'from_state' => 'VARCHAR(20) NOT NULL',
-		'from_country' => 'TEXT NULL',
-		'to_company' => 'VARCHAR(20) NOT NULL',
-		'to_street' => 'VARCHAR(20) NOT NULL',
-		'to_address_nr' => 'INT(10) NOT NULL',
-		'to_zipcode' => 'VARCHAR(15) NOT NULL',
-		'to_city' => 'TEXT NULL',
-		'to_state' => 'VARCHAR(20) NOT NULL',
-		'to_country' => 'TEXT NULL',
-		'arrival_date' => 'DATE NULL',
-		'price' => 'DECIMAL(9,2) NULL',
-		'currency' => 'VARCHAR(30) NULL',
-		'cargo_type' => 'TEXT NULL',
-		'transport_type' => 'TEXT NULL',
-		'weight' => 'TEXT NULL',
-		'volume' => 'TEXT NULL',
-		'length' => 'VARCHAR(20) NULL',
-		'height' => 'VARCHAR(20) NULL',
-		'width' => 'VARCHAR(20) NULL',
-		'size' => 'INT(11) NULL',
-		'description' => 'TEXT NULL',
-		'physical_state' => 'VARCHAR(30) NOT NULL',
-		'notes' => 'TEXT NULL',
-		'tx_date' => 'DATETIME NULL',
-		'weight_unit' => 'VARCHAR(50) NULL',
-		'volume_unit' => 'VARCHAR(50) NULL',
-		'length_unit' => 'VARCHAR(50) NULL',
-		'height_unit' => 'VARCHAR(50) NULL',
-		'width_unit' => 'VARCHAR(50) NULL',
-		'size_unit' => 'VARCHAR(50) NULL',
-		'image_file_id' => 'INT(11) NULL',
-		'attach_id_values' => 'VARCHAR(100) NULL',
-		'company_id' => 'INT(11) NOT NULL DEFAULT \'0\'',
-	], $tableOptions_mysql);
-}
-}
- 
-/* MYSQL */
-if (!in_array('tm_obc', $tables))  { 
-if ($dbType == "mysql") {
-	$this->createTable('{{%tm_obc}}', [
-		'id' => 'INT(11) NOT NULL AUTO_INCREMENT',
-		0 => 'PRIMARY KEY (`id`)',
-		'startshipping_date' => 'DATE NULL',
-		'endshipping_date' => 'DATE NULL',
-		'from_airport' => 'TEXT NULL',
-		'from_city' => 'TEXT NULL',
-		'from_country' => 'TEXT NULL',
-		'to_airport' => 'TEXT NULL',
-		'to_city' => 'TEXT NULL',
-		'to_country' => 'TEXT NULL',
-		'courier_name' => 'VARCHAR(15) NULL',
-		'user_name' => 'VARCHAR(15) NULL',
-		'weight' => 'INT(10) NULL',
-		'volume' => 'INT(10) NULL',
-		'airliner' => 'VARCHAR(200) NULL',
-		'flight_number' => 'VARCHAR(100) NULL',
-		'cargo_type' => 'VARCHAR(200) NULL',
-		'tx_date' => 'DATETIME NULL',
-		'price' => 'DOUBLE(18,2) NOT NULL DEFAULT \'0\'',
-		'package_type' => 'INT(11) NOT NULL DEFAULT \'0\'',
-		'currency' => 'VARCHAR(3) NOT NULL DEFAULT \'\'',
-		'obc_id' => 'VARCHAR(30) NOT NULL',
-		'company_id' => 'INT(11) NOT NULL DEFAULT \'0\'',
-	], $tableOptions_mysql);
-}
-}
- 
-/* MYSQL */
-if (!in_array('tm_transport', $tables))  { 
-if ($dbType == "mysql") {
-	$this->createTable('{{%tm_transport}}', [
-		'id' => 'INT(11) NOT NULL AUTO_INCREMENT',
-		0 => 'PRIMARY KEY (`id`)',
-		'user_id' => 'VARCHAR(20) NULL DEFAULT \'1\'',
-		'departure_date' => 'DATE NOT NULL',
-		'arrival_date' => 'DATE NOT NULL',
-		'startshipping_date' => 'DATE NOT NULL',
-		'endshipping_date' => 'DATE NOT NULL',
-		'from_city' => 'TEXT NULL',
-		'from_country' => 'TEXT NULL',
-		'to_city' => 'TEXT NULL',
-		'to_country' => 'TEXT NULL',
-		'price' => 'DECIMAL(9,2) NULL',
-		'currency' => 'VARCHAR(30) NULL',
-		'transport_type' => 'TEXT NULL',
-		'container_type' => 'TEXT NOT NULL',
-		'weight' => 'TEXT NULL',
-		'volume' => 'TEXT NULL',
-		'length' => 'VARCHAR(20) NULL',
-		'height' => 'VARCHAR(20) NULL',
-		'width' => 'VARCHAR(20) NULL',
-		'airfreight_security' => 'TEXT NOT NULL',
-		'shipper' => 'TEXT NOT NULL',
-		'description' => 'TEXT NULL',
-		'notes' => 'TEXT NOT NULL',
-		'tx_date' => 'DATETIME NULL',
-		'transport_ID' => 'TEXT NOT NULL',
-		'awb' => 'TEXT NULL',
-		'airfreight_security_type' => 'VARCHAR(50) NULL',
-		'company_id' => 'INT(11) NOT NULL DEFAULT \'0\'',
-	], $tableOptions_mysql);
-}
-}
+
  
 /* MYSQL */
 if (!in_array('transaction_type', $tables))  { 
@@ -6233,46 +6118,6 @@ $this->insert('{{%sys_value_group_line}}',['sys_value_group_line_id'=>'1949','sy
 $this->insert('{{%system_path}}',['path_id'=>'1','path_name'=>'supplier','path_description'=>'Supplier List','path_value'=>'modules/ap/suppliers/supplier.php','path_sec_id'=>'','path_revision_number'=>'','path_revision_enabled'=>'','path_creation_date'=>'','path_created_by'=>'','path_last_update_date'=>'','path_last_updated_by'=>'','company_id'=>'0']);
 $this->insert('{{%system_path}}',['path_id'=>'2','path_name'=>'user registration','path_description'=>'new user registration','path_value'=>'extensions/user/user_registration.php','path_sec_id'=>'','path_revision_number'=>'','path_revision_enabled'=>'','path_creation_date'=>'','path_created_by'=>'','path_last_update_date'=>'','path_last_updated_by'=>'','company_id'=>'0']);
 $this->insert('{{%system_path}}',['path_id'=>'3','path_name'=>'paths','path_description'=>'all the paths','path_value'=>'extensions/path/path.php','path_sec_id'=>'','path_revision_number'=>'','path_revision_enabled'=>'','path_creation_date'=>'','path_created_by'=>'','path_last_update_date'=>'','path_last_updated_by'=>'','company_id'=>'0']);
-$this->insert('{{%tm_cargo}}',['id'=>'1','user_id'=>'U16JUNAAA','cargo_id'=>'C16JUN2AAA','from_company'=>'1','from_street'=>'2','from_address_nr'=>'3','from_zipcode'=>'4','from_city'=>'5','from_state'=>'6','from_country'=>'113','to_company'=>'7','to_street'=>'8','to_address_nr'=>'9','to_zipcode'=>'10','to_city'=>'11','to_state'=>'12','to_country'=>'2','arrival_date'=>'2016-06-30','price'=>'1.00','currency'=>'1','cargo_type'=>'1','transport_type'=>'1','weight'=>'1','volume'=>'2','length'=>'3','height'=>'4','width'=>'5','size'=>'6','description'=>'ALTER TABLE `inoerp`.`tm_transport` 
-CHANGE COLUMN `awb` `awb` TEXT NULL ;','physical_state'=>'5','notes'=>'ALTER TABLE `inoerp`.`tm_transport` 
-CHANGE COLUMN `awb` `awb` TEXT NULL ;','tx_date'=>'2016-06-05 00:00:00','weight_unit'=>'1','volume_unit'=>'1','length_unit'=>'1','height_unit'=>'1','width_unit'=>'1','size_unit'=>'1','image_file_id'=>'','attach_id_values'=>'','company_id'=>'0']);
-$this->insert('{{%tm_cargo}}',['id'=>'2','user_id'=>'U16JUNAAA','cargo_id'=>'C16JUN2AAA','from_company'=>'1','from_street'=>'2','from_address_nr'=>'3','from_zipcode'=>'4','from_city'=>'5','from_state'=>'6','from_country'=>'113','to_company'=>'7','to_street'=>'8','to_address_nr'=>'9','to_zipcode'=>'10','to_city'=>'11','to_state'=>'12','to_country'=>'2','arrival_date'=>'2016-06-30','price'=>'1.00','currency'=>'1','cargo_type'=>'1','transport_type'=>'1','weight'=>'1','volume'=>'2','length'=>'3','height'=>'4','width'=>'5','size'=>'6','description'=>'ALTER TABLE `inoerp`.`tm_transport` 
-CHANGE COLUMN `awb` `awb` TEXT NULL ;','physical_state'=>'5','notes'=>'ALTER TABLE `inoerp`.`tm_transport` 
-CHANGE COLUMN `awb` `awb` TEXT NULL ;','tx_date'=>'2016-06-05 00:00:00','weight_unit'=>'1','volume_unit'=>'1','length_unit'=>'1','height_unit'=>'1','width_unit'=>'1','size_unit'=>'1','image_file_id'=>'','attach_id_values'=>'','company_id'=>'0']);
-$this->insert('{{%tm_cargo}}',['id'=>'3','user_id'=>'U16JUNAAA','cargo_id'=>'C16JUN2AAA','from_company'=>'1','from_street'=>'2','from_address_nr'=>'3','from_zipcode'=>'4','from_city'=>'5','from_state'=>'6','from_country'=>'113','to_company'=>'7','to_street'=>'8','to_address_nr'=>'9','to_zipcode'=>'10','to_city'=>'11','to_state'=>'12','to_country'=>'2','arrival_date'=>'2016-06-30','price'=>'1.00','currency'=>'1','cargo_type'=>'1','transport_type'=>'1','weight'=>'1','volume'=>'2','length'=>'3','height'=>'4','width'=>'5','size'=>'6','description'=>'ALTER TABLE `inoerp`.`tm_transport` 
-CHANGE COLUMN `awb` `awb` TEXT NULL ;','physical_state'=>'5','notes'=>'ALTER TABLE `inoerp`.`tm_transport` 
-CHANGE COLUMN `awb` `awb` TEXT NULL ;','tx_date'=>'2016-06-05 00:00:00','weight_unit'=>'1','volume_unit'=>'1','length_unit'=>'1','height_unit'=>'1','width_unit'=>'1','size_unit'=>'1','image_file_id'=>'','attach_id_values'=>'','company_id'=>'0']);
-$this->insert('{{%tm_cargo}}',['id'=>'4','user_id'=>'U16JUNAAA','cargo_id'=>'C16JUN2AAA','from_company'=>'1','from_street'=>'2','from_address_nr'=>'3','from_zipcode'=>'4','from_city'=>'5','from_state'=>'6','from_country'=>'113','to_company'=>'7','to_street'=>'8','to_address_nr'=>'9','to_zipcode'=>'10','to_city'=>'11','to_state'=>'12','to_country'=>'2','arrival_date'=>'2016-06-30','price'=>'1.00','currency'=>'1','cargo_type'=>'1','transport_type'=>'1','weight'=>'1','volume'=>'2','length'=>'3','height'=>'4','width'=>'5','size'=>'6','description'=>'ALTER TABLE `inoerp`.`tm_transport` 
-CHANGE COLUMN `awb` `awb` TEXT NULL ;','physical_state'=>'5','notes'=>'ALTER TABLE `inoerp`.`tm_transport` 
-CHANGE COLUMN `awb` `awb` TEXT NULL ;','tx_date'=>'2016-06-05 00:00:00','weight_unit'=>'1','volume_unit'=>'1','length_unit'=>'1','height_unit'=>'1','width_unit'=>'1','size_unit'=>'1','image_file_id'=>'618','attach_id_values'=>'','company_id'=>'0']);
-$this->insert('{{%tm_cargo}}',['id'=>'5','user_id'=>'U16JUNAAA','cargo_id'=>'C16JUN2AAA','from_company'=>'1','from_street'=>'2','from_address_nr'=>'3','from_zipcode'=>'4','from_city'=>'5','from_state'=>'6','from_country'=>'113','to_company'=>'7','to_street'=>'8','to_address_nr'=>'9','to_zipcode'=>'10','to_city'=>'11','to_state'=>'12','to_country'=>'2','arrival_date'=>'2016-06-30','price'=>'1.00','currency'=>'1','cargo_type'=>'1','transport_type'=>'1','weight'=>'1','volume'=>'2','length'=>'3','height'=>'4','width'=>'5','size'=>'6','description'=>'ALTER TABLE `inoerp`.`tm_transport` 
-CHANGE COLUMN `awb` `awb` TEXT NULL ;','physical_state'=>'5','notes'=>'ALTER TABLE `inoerp`.`tm_transport` 
-CHANGE COLUMN `awb` `awb` TEXT NULL ;','tx_date'=>'2016-06-05 00:00:00','weight_unit'=>'1','volume_unit'=>'1','length_unit'=>'1','height_unit'=>'1','width_unit'=>'1','size_unit'=>'1','image_file_id'=>'618','attach_id_values'=>'617,618','company_id'=>'0']);
-$this->insert('{{%tm_obc}}',['id'=>'1','startshipping_date'=>'2016-06-30','endshipping_date'=>'2016-06-29','from_airport'=>'Test','from_city'=>'Test','from_country'=>'1','to_airport'=>'Test','to_city'=>'Test','to_country'=>'2','courier_name'=>'KDF','user_name'=>'zeddarn','weight'=>'100','volume'=>'1000','airliner'=>'200','flight_number'=>'KQ500','cargo_type'=>'1','tx_date'=>'','price'=>'100.00','package_type'=>'0','currency'=>'1','obc_id'=>'O16JUN0AAA','company_id'=>'0']);
-$this->insert('{{%tm_obc}}',['id'=>'2','startshipping_date'=>'2016-06-30','endshipping_date'=>'2016-06-29','from_airport'=>'Test','from_city'=>'Test','from_country'=>'1','to_airport'=>'Test','to_city'=>'Test','to_country'=>'2','courier_name'=>'KDF','user_name'=>'zeddarn','weight'=>'100','volume'=>'1000','airliner'=>'200','flight_number'=>'KQ500','cargo_type'=>'1','tx_date'=>'','price'=>'100.00','package_type'=>'0','currency'=>'1','obc_id'=>'O16JUN0AAA','company_id'=>'0']);
-$this->insert('{{%tm_obc}}',['id'=>'3','startshipping_date'=>'2016-06-30','endshipping_date'=>'2016-06-29','from_airport'=>'Test','from_city'=>'Test','from_country'=>'1','to_airport'=>'Test','to_city'=>'Test','to_country'=>'2','courier_name'=>'KDF','user_name'=>'zeddarn','weight'=>'100','volume'=>'1000','airliner'=>'200','flight_number'=>'KQ500','cargo_type'=>'1','tx_date'=>'','price'=>'100.00','package_type'=>'0','currency'=>'1','obc_id'=>'O16JUN0AAA','company_id'=>'0']);
-$this->insert('{{%tm_obc}}',['id'=>'4','startshipping_date'=>'2016-06-30','endshipping_date'=>'2016-06-29','from_airport'=>'Test','from_city'=>'Test','from_country'=>'1','to_airport'=>'Test','to_city'=>'Test','to_country'=>'2','courier_name'=>'KDF','user_name'=>'zeddarn','weight'=>'100','volume'=>'1000','airliner'=>'200','flight_number'=>'KQ500','cargo_type'=>'1','tx_date'=>'','price'=>'100.00','package_type'=>'0','currency'=>'1','obc_id'=>'O16JUN0AAA','company_id'=>'0']);
-$this->insert('{{%tm_obc}}',['id'=>'5','startshipping_date'=>'2016-06-30','endshipping_date'=>'2016-06-29','from_airport'=>'Test','from_city'=>'Test','from_country'=>'1','to_airport'=>'Test','to_city'=>'Test','to_country'=>'2','courier_name'=>'KDF','user_name'=>'zeddarn','weight'=>'100','volume'=>'1000','airliner'=>'200','flight_number'=>'KQ500','cargo_type'=>'1','tx_date'=>'','price'=>'100.00','package_type'=>'0','currency'=>'1','obc_id'=>'O16JUN0AAA','company_id'=>'0']);
-$this->insert('{{%tm_obc}}',['id'=>'6','startshipping_date'=>'2016-06-30','endshipping_date'=>'2016-06-29','from_airport'=>'Test','from_city'=>'Test','from_country'=>'1','to_airport'=>'Test','to_city'=>'Test','to_country'=>'2','courier_name'=>'KDF','user_name'=>'zeddarn','weight'=>'100','volume'=>'1000','airliner'=>'200','flight_number'=>'KQ500','cargo_type'=>'1','tx_date'=>'','price'=>'100.00','package_type'=>'0','currency'=>'1','obc_id'=>'O16JUN0AAA','company_id'=>'0']);
-$this->insert('{{%tm_obc}}',['id'=>'7','startshipping_date'=>'2016-06-30','endshipping_date'=>'2016-06-29','from_airport'=>'Test','from_city'=>'Test','from_country'=>'1','to_airport'=>'Test','to_city'=>'Test','to_country'=>'2','courier_name'=>'KDF','user_name'=>'zeddarn','weight'=>'100','volume'=>'1000','airliner'=>'200','flight_number'=>'KQ500','cargo_type'=>'1','tx_date'=>'','price'=>'100.00','package_type'=>'0','currency'=>'1','obc_id'=>'O16JUN0AAA','company_id'=>'0']);
-$this->insert('{{%tm_obc}}',['id'=>'8','startshipping_date'=>'2016-06-30','endshipping_date'=>'2016-06-29','from_airport'=>'Test','from_city'=>'Test','from_country'=>'1','to_airport'=>'Test','to_city'=>'Test','to_country'=>'2','courier_name'=>'KDF','user_name'=>'zeddarn','weight'=>'100','volume'=>'1000','airliner'=>'200','flight_number'=>'KQ500','cargo_type'=>'1','tx_date'=>'','price'=>'100.00','package_type'=>'0','currency'=>'1','obc_id'=>'O16JUN0AAA','company_id'=>'0']);
-$this->insert('{{%tm_obc}}',['id'=>'9','startshipping_date'=>'2016-06-30','endshipping_date'=>'2016-06-29','from_airport'=>'Test','from_city'=>'Test','from_country'=>'1','to_airport'=>'Test','to_city'=>'Test','to_country'=>'2','courier_name'=>'KDF','user_name'=>'zeddarn','weight'=>'100','volume'=>'1000','airliner'=>'200','flight_number'=>'KQ500','cargo_type'=>'1','tx_date'=>'','price'=>'100.00','package_type'=>'0','currency'=>'1','obc_id'=>'O16JUN0AAA','company_id'=>'0']);
-$this->insert('{{%tm_obc}}',['id'=>'10','startshipping_date'=>'2016-06-30','endshipping_date'=>'2016-06-29','from_airport'=>'Test','from_city'=>'Test','from_country'=>'1','to_airport'=>'Test','to_city'=>'Test','to_country'=>'2','courier_name'=>'KDF','user_name'=>'zeddarn','weight'=>'100','volume'=>'1000','airliner'=>'200','flight_number'=>'KQ500','cargo_type'=>'1','tx_date'=>'','price'=>'100.00','package_type'=>'0','currency'=>'1','obc_id'=>'O16JUN0AAA','company_id'=>'0']);
-$this->insert('{{%tm_obc}}',['id'=>'11','startshipping_date'=>'2016-06-30','endshipping_date'=>'2016-06-29','from_airport'=>'Test','from_city'=>'Test','from_country'=>'1','to_airport'=>'Test','to_city'=>'Test','to_country'=>'2','courier_name'=>'KDF','user_name'=>'zeddarn','weight'=>'100','volume'=>'1000','airliner'=>'200','flight_number'=>'KQ500','cargo_type'=>'1','tx_date'=>'','price'=>'100.00','package_type'=>'0','currency'=>'1','obc_id'=>'O16JUN1AAA','company_id'=>'0']);
-$this->insert('{{%tm_obc}}',['id'=>'12','startshipping_date'=>'2016-06-30','endshipping_date'=>'2016-06-29','from_airport'=>'3','from_city'=>'Test','from_country'=>'6','to_airport'=>'3','to_city'=>'tets','to_country'=>'8','courier_name'=>'Test','user_name'=>'U16JUNAAA','weight'=>'1','volume'=>'1','airliner'=>'2','flight_number'=>'1','cargo_type'=>'1','tx_date'=>'','price'=>'1.00','package_type'=>'0','currency'=>'1','obc_id'=>'O16JUN1AAB','company_id'=>'0']);
-$this->insert('{{%tm_obc}}',['id'=>'13','startshipping_date'=>'2016-06-30','endshipping_date'=>'','from_airport'=>'','from_city'=>'','from_country'=>'','to_airport'=>'','to_city'=>'','to_country'=>'','courier_name'=>'','user_name'=>'','weight'=>'','volume'=>'','airliner'=>'','flight_number'=>'','cargo_type'=>'','tx_date'=>'','price'=>'0.00','package_type'=>'0','currency'=>'','obc_id'=>'','company_id'=>'0']);
-$this->insert('{{%tm_obc}}',['id'=>'14','startshipping_date'=>'2016-06-30','endshipping_date'=>'','from_airport'=>'','from_city'=>'','from_country'=>'','to_airport'=>'','to_city'=>'','to_country'=>'','courier_name'=>'','user_name'=>'','weight'=>'','volume'=>'','airliner'=>'','flight_number'=>'','cargo_type'=>'','tx_date'=>'','price'=>'0.00','package_type'=>'0','currency'=>'','obc_id'=>'O16JUN1AAC','company_id'=>'0']);
-$this->insert('{{%tm_obc}}',['id'=>'15','startshipping_date'=>'2016-06-30','endshipping_date'=>'','from_airport'=>'','from_city'=>'','from_country'=>'','to_airport'=>'','to_city'=>'','to_country'=>'','courier_name'=>'','user_name'=>'','weight'=>'','volume'=>'','airliner'=>'','flight_number'=>'','cargo_type'=>'','tx_date'=>'','price'=>'0.00','package_type'=>'0','currency'=>'','obc_id'=>'O16JUN1AAC','company_id'=>'0']);
-$this->insert('{{%tm_obc}}',['id'=>'16','startshipping_date'=>'2016-06-30','endshipping_date'=>'','from_airport'=>'','from_city'=>'','from_country'=>'','to_airport'=>'','to_city'=>'','to_country'=>'','courier_name'=>'','user_name'=>'','weight'=>'','volume'=>'','airliner'=>'','flight_number'=>'','cargo_type'=>'','tx_date'=>'','price'=>'0.00','package_type'=>'0','currency'=>'','obc_id'=>'O16JUN1AAC','company_id'=>'0']);
-$this->insert('{{%tm_obc}}',['id'=>'17','startshipping_date'=>'2016-06-30','endshipping_date'=>'','from_airport'=>'','from_city'=>'','from_country'=>'','to_airport'=>'','to_city'=>'','to_country'=>'','courier_name'=>'','user_name'=>'','weight'=>'','volume'=>'','airliner'=>'','flight_number'=>'','cargo_type'=>'','tx_date'=>'','price'=>'0.00','package_type'=>'0','currency'=>'','obc_id'=>'O16JUN1AAD','company_id'=>'0']);
-$this->insert('{{%tm_obc}}',['id'=>'18','startshipping_date'=>'2016-06-24','endshipping_date'=>'','from_airport'=>'','from_city'=>'','from_country'=>'','to_airport'=>'','to_city'=>'','to_country'=>'','courier_name'=>'','user_name'=>'','weight'=>'','volume'=>'','airliner'=>'','flight_number'=>'','cargo_type'=>'','tx_date'=>'','price'=>'0.00','package_type'=>'0','currency'=>'','obc_id'=>'O16JUN1AAD','company_id'=>'0']);
-$this->insert('{{%tm_obc}}',['id'=>'19','startshipping_date'=>'2016-06-24','endshipping_date'=>'','from_airport'=>'','from_city'=>'','from_country'=>'','to_airport'=>'','to_city'=>'','to_country'=>'','courier_name'=>'','user_name'=>'kip','weight'=>'','volume'=>'','airliner'=>'','flight_number'=>'','cargo_type'=>'','tx_date'=>'','price'=>'0.00','package_type'=>'0','currency'=>'','obc_id'=>'O16JUN1AAD','company_id'=>'0']);
-$this->insert('{{%tm_obc}}',['id'=>'20','startshipping_date'=>'2016-06-08','endshipping_date'=>'2016-06-30','from_airport'=>'6890','from_city'=>'j','from_country'=>'72','to_airport'=>'6879','to_city'=>'Test','to_country'=>'1','courier_name'=>'2','user_name'=>'U16JUNAAA','weight'=>'1','volume'=>'1','airliner'=>'4','flight_number'=>'123456','cargo_type'=>'1','tx_date'=>'','price'=>'100.00','package_type'=>'0','currency'=>'3','obc_id'=>'O16JUN1AAE','company_id'=>'0']);
-$this->insert('{{%tm_obc}}',['id'=>'21','startshipping_date'=>'2016-06-08','endshipping_date'=>'2016-06-30','from_airport'=>'6890','from_city'=>'j','from_country'=>'72','to_airport'=>'6879','to_city'=>'Test','to_country'=>'1','courier_name'=>'2','user_name'=>'U16JUNAAA','weight'=>'1','volume'=>'1','airliner'=>'4','flight_number'=>'123456','cargo_type'=>'1','tx_date'=>'','price'=>'100.00','package_type'=>'0','currency'=>'3','obc_id'=>'O16JUN1AAE','company_id'=>'0']);
-$this->insert('{{%tm_obc}}',['id'=>'22','startshipping_date'=>'2016-06-30','endshipping_date'=>'2016-06-29','from_airport'=>'3','from_city'=>'Test','from_country'=>'6','to_airport'=>'3','to_city'=>'tets','to_country'=>'8','courier_name'=>'Test','user_name'=>'U16JUNAAA','weight'=>'1','volume'=>'1','airliner'=>'2','flight_number'=>'1','cargo_type'=>'1','tx_date'=>'2016-06-05 00:00:00','price'=>'1.00','package_type'=>'0','currency'=>'1','obc_id'=>'O16JUN1AAB','company_id'=>'0']);
-$this->insert('{{%tm_obc}}',['id'=>'23','startshipping_date'=>'2016-06-08','endshipping_date'=>'2016-06-30','from_airport'=>'6890','from_city'=>'j','from_country'=>'72','to_airport'=>'6879','to_city'=>'Test','to_country'=>'1','courier_name'=>'2','user_name'=>'U16JUNAAA','weight'=>'1','volume'=>'1','airliner'=>'4','flight_number'=>'123456','cargo_type'=>'1','tx_date'=>'2016-06-05 00:00:00','price'=>'100.00','package_type'=>'0','currency'=>'3','obc_id'=>'O16JUN1AAE','company_id'=>'0']);
-$this->insert('{{%tm_obc}}',['id'=>'24','startshipping_date'=>'2016-06-09','endshipping_date'=>'2016-06-10','from_airport'=>'4','from_city'=>'1','from_country'=>'1','to_airport'=>'4','to_city'=>'2','to_country'=>'8','courier_name'=>'','user_name'=>'U16JUNAAA','weight'=>'1','volume'=>'1','airliner'=>'2','flight_number'=>'123456','cargo_type'=>'1','tx_date'=>'2016-06-09 00:00:00','price'=>'100.00','package_type'=>'0','currency'=>'1','obc_id'=>'O16JUN1AAF','company_id'=>'9']);
-$this->insert('{{%tm_transport}}',['id'=>'1','user_id'=>'U16JUNAAA','departure_date'=>'2016-06-08','arrival_date'=>'2016-06-17','startshipping_date'=>'2016-06-16','endshipping_date'=>'2016-06-17','from_city'=>'Naiorb','from_country'=>'3','to_city'=>'KE','to_country'=>'2','price'=>'100.00','currency'=>'1','transport_type'=>'1','container_type'=>'1','weight'=>'100','volume'=>'100','length'=>'100','height'=>'100','width'=>'100','airfreight_security'=>'1','shipper'=>'KEnya','description'=>'Small businesses succeed when they combine Email Marketing and Social Media. See how you can do the same.','notes'=>'Small businesses succeed when they combine Email Marketing and Social Media. See how you can do the same.','tx_date'=>'2016-06-05 00:00:00','transport_ID'=>'T16JUN2AAA','awb'=>'Small businesses succeed when they combine Email Marketing and Social Media. See how you can do the same.','airfreight_security_type'=>'2','company_id'=>'0']);
 $this->insert('{{%transaction_type}}',['transaction_type_id'=>'1','transaction_type_number'=>'1','transaction_type'=>'Miscellaneous Issue','type_class'=>'INVENTORY','transaction_action'=>'1','description'=>'Miscellaneous Issue','allow_negative_balance_cb'=>'0','account_id'=>'20','ef_id'=>'0','status'=>'active','rev_enabled_cb'=>'0','rev_number'=>'','created_by'=>'0','creation_date'=>'2014-01-09 06:59:30','last_update_by'=>'0','last_update_date'=>'2014-01-09 06:59:30','company_id'=>'0']);
 $this->insert('{{%transaction_type}}',['transaction_type_id'=>'2','transaction_type_number'=>'2','transaction_type'=>'Miscellaneous Receipt','type_class'=>'INVENTORY','transaction_action'=>'27','description'=>'Miscellaneous Receipt','allow_negative_balance_cb'=>'0','account_id'=>'21','ef_id'=>'0','status'=>'active','rev_enabled_cb'=>'0','rev_number'=>'','created_by'=>'0','creation_date'=>'2014-01-09 06:59:30','last_update_by'=>'0','last_update_date'=>'2014-01-09 06:59:30','company_id'=>'0']);
 $this->insert('{{%transaction_type}}',['transaction_type_id'=>'3','transaction_type_number'=>'3','transaction_type'=>'Subinventory Transfer','type_class'=>'INVENTORY','transaction_action'=>'2','description'=>'Subinventory Transfer','allow_negative_balance_cb'=>'0','account_id'=>'0','ef_id'=>'0','status'=>'active','rev_enabled_cb'=>'0','rev_number'=>'','created_by'=>'0','creation_date'=>'2014-01-09 06:59:30','last_update_by'=>'0','last_update_date'=>'2014-01-09 06:59:30','company_id'=>'0']);
@@ -8095,15 +7940,6 @@ $this->execute('DROP TABLE IF EXISTS `sys_value_group_line`');
 $this->execute('SET foreign_key_checks = 1;');
 $this->execute('SET foreign_key_checks = 0');
 $this->execute('DROP TABLE IF EXISTS `system_path`');
-$this->execute('SET foreign_key_checks = 1;');
-$this->execute('SET foreign_key_checks = 0');
-$this->execute('DROP TABLE IF EXISTS `tm_cargo`');
-$this->execute('SET foreign_key_checks = 1;');
-$this->execute('SET foreign_key_checks = 0');
-$this->execute('DROP TABLE IF EXISTS `tm_obc`');
-$this->execute('SET foreign_key_checks = 1;');
-$this->execute('SET foreign_key_checks = 0');
-$this->execute('DROP TABLE IF EXISTS `tm_transport`');
 $this->execute('SET foreign_key_checks = 1;');
 $this->execute('SET foreign_key_checks = 0');
 $this->execute('DROP TABLE IF EXISTS `transaction_type`');

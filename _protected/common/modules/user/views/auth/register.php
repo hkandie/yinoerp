@@ -22,46 +22,24 @@ $form = ActiveForm::begin([
         ]
     ]);
 
-    echo Form::widget([
-        'model' => $profile,
-        'form' => $form,
-        'columns' => 1,
-        'attributes' => [
-            'note' => [
-                'type' => Form::INPUT_TEXT,
-                'label' => 'I am a',
-                'options' => ['placeholder' => 'subject', 'label' => 'I am a']
-            ],
-            'level' => [
-                'type' => Form::INPUT_TEXT,
-                'label' => '(subject) tutor with',
-                'options' => ['placeholder' => 'Enter level']
-            ],
-            'min_hire_cost' => [
-                'label' => ' experience teaching and looking for jobs between ',
-                'columnOptions'=>['colspan'=>1],
-                'type' => Form::INPUT_TEXT, 'options' => ['placeholder' => 'price range from']
-            ],
-            'max_hire_cost' => [
-                'label' => ' Price range to ',
-                'type' => Form::INPUT_TEXT, 
-                'options' => ['placeholder' => 'price range to']
-                ],
-            'town' => [
-                'type' => Form::INPUT_TEXT,
-                'label' => 'Town',
-                'options' => ['placeholder' => 'Enter town']
-            ],
-        ]
-    ]);
+
 
     echo Form::widget([
         'model' => $user,
         'form' => $form,
         'columns' => 1,
         'attributes' => [
+            'email' => ['type' => Form::INPUT_TEXT, 'options' => ['placeholder' => 'Enter email...']],
             'username' => ['type' => Form::INPUT_TEXT, 'options' => ['placeholder' => 'Enter username...']],
             'newPassword' => ['type' => Form::INPUT_PASSWORD, 'options' => ['placeholder' => 'Enter password...']],
+        ]
+    ]);
+    echo Form::widget([
+        'model' => $profile,
+        'form' => $form,
+        'columns' => 1,
+        'attributes' => [
+            'level' => ['type' => Form::INPUT_CHECKBOX, 'label' => ' I Agree to terms of use'],
         ]
     ]);
     $this->title = Yii::t('user', 'Register');
@@ -73,7 +51,8 @@ $form = ActiveForm::begin([
             <?= Html::submitButton(Yii::t('user', 'Register'), ['class' => 'btn btn-primary']) ?>
 
             <br/><br/>
-            <?= Html::a(Yii::t('user', 'Login'), ["/user/auth/login"]) ?>
+            <?= Html::a(Yii::t("user", "Login") . "?", ["/user/auth/login"]) ?> / 
+            <?= Html::a(Yii::t("user", "Forgot password") . "?", ["/user/auth/forgot"]) ?> /
         </div>
     </div>
     <?php ActiveForm::end(); ?>

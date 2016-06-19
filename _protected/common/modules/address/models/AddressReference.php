@@ -1,6 +1,6 @@
 <?php
 
-namespace common\modules\models;
+namespace common\modules\address\models;
 
 use Yii;
 
@@ -44,12 +44,12 @@ class AddressReference extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'address_reference_id' => 'Address Reference ID',
-            'address_id' => 'Address ID',
-            'reference_table' => 'Reference Table',
-            'reference_id' => 'Reference ID',
-            'status' => 'Status',
-            'company_id' => 'Company ID',
+            'address_reference_id' => Yii::t('app', 'Address Reference ID'),
+            'address_id' => Yii::t('app', 'Address ID'),
+            'reference_table' => Yii::t('app', 'Reference Table'),
+            'reference_id' => Yii::t('app', 'Reference ID'),
+            'status' => Yii::t('app', 'Status'),
+            'company_id' => Yii::t('app', 'Company ID'),
         ];
     }
 }

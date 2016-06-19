@@ -11,15 +11,12 @@ use yii\widgets\ActiveForm;
  */
 $this->title = Yii::t('user', 'Login');
 $this->params['breadcrumbs'][] = $this->title;
-$logo=common\modules\settings\models\Organization::find(1)->one();
+$logo=  \common\modules\org\models\Org::find(1)->one();
 if(empty($logo)){
  $logo->org_logo="default-logo.jpg";   
 }
 ?>
 <div class="login-box">
-    <div class="login-box-body login-header">
-        <h1><?= Html::img(Yii::$app->request->baseUrl .'/site/data/org_images/' . $logo->org_logo, ['width' => '150px;']) ?></h1>
-    </div>
     <div class="login-box-body">
 
         <h1><?= Html::encode($this->title) ?></h1>
@@ -50,7 +47,7 @@ if(empty($logo)){
                 <?= Html::submitButton(Yii::t('user', 'Login'), ['class' => 'btn btn-primary']) ?>
 
                 <br/><br/>
-                
+                <?= Html::a(Yii::t("user", "Register") . "?", ["/user/auth/register"]) ?> / 
                 <?= Html::a(Yii::t("user", "Forgot password") . "?", ["/user/auth/forgot"]) ?> /
                 
             </div>

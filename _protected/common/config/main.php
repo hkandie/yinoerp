@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'name' => 'G2G Innovate',
+    'name' => 'inoERP',
     //'language' => 'sr',
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'modules' => [
@@ -96,7 +96,6 @@ return [
         'hr' => ['class' => 'common\modules\hr\Hr',],
         'option' => ['class' => 'common\modules\option\Option',],
         'sd' => ['class' => 'common\modules\sd\Sd',],
-        'user' => ['class' => 'common\modules\user\User',],
         'business' => ['class' => 'common\modules\business\Business',],
         'engine' => ['class' => 'common\modules\engine\Engine',],
         'inv' => ['class' => 'common\modules\inv\Inv',],
@@ -127,14 +126,7 @@ return [
     ],
     'components' => [
 
-        'assetManager' => [
-            'bundles' => [
-// we will use bootstrap css from our theme
-                'yii\bootstrap\BootstrapAsset' => [
-                    'css' => [], // do not use yii default one
-                ],
-            ],
-        ],
+
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -180,7 +172,15 @@ return [
                 ],
             ],
         ],
-    ], // components
+    ],
+//    'as access' => [
+//        'class' => 'mdm\admin\components\AccessControl',
+//        'allowActions' => [
+//            'user/auth/logout','user/auth/login', 'user/auth/error', 'user/auth/forgot',
+//            'user/auth/register', 'user/auth/reset','user/auth/account','site/site/index' // add or remove allowed actions to this list
+//        ]
+//    ],
+    // // components
 // set allias for our uploads folder so it can be shared by both frontend and backend applications
 // @appRoot alias is definded in common/config/bootstrap.php file
     'aliases' => [

@@ -9,7 +9,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="login-box">
     <div class="login-box-body login-header">
-        <h1><?= Html::img(Yii::$app->request->baseUrl .'/site/data/org_images/' . common\modules\settings\models\Organization::find(1)->one()->org_logo, ['width' => '150px;']) ?></h1>
+        <h1><?= Html::img(Yii::$app->request->baseUrl .'/site/data/org_images/' . \common\modules\org\models\Org::find(1)->one()->org_logo, ['width' => '150px;']) ?></h1>
     </div>
     <div class="login-box-body">
         <div class="user-default-confirm">

@@ -73,11 +73,11 @@ class AuthController extends Controller {
     public function actionPasswd() {
         /** @var \common\modules\user\models\forms\LoginForm $model */
 // load post data and login
-        $model = Yii::$app->getModule("user")->model("PasswdForm");
+        $model = new \common\modules\user\models\forms\PasswdForm;
         if ($model->load(Yii::$app->request->post()) && $model->login(Yii::$app->getModule("user")->loginDuration)) {
             return $this->goBack(Yii::$app->getModule("user")->loginRedirect);
         }
-        return $this->render('login', [
+        return $this->render('passwd', [
                     'model' => $model,
         ]);
     }
@@ -277,11 +277,10 @@ class AuthController extends Controller {
     public function actionProfile() {
         $user = \common\modules\user\models\User::find(Yii::$app->user->id)->one();
         $profile = $user->profile;
-
 // load post data
         $post = Yii::$app->request->post();
-
         if ($user->load($post) && $user->validate() && $profile->load($post) && $profile->validate()) {
+           
             $user->save(false);
             $profile->setUser($user->id)->save(false);
             $profile->avatar = \yii\web\UploadedFile::getInstance($profile, 'avatar');
@@ -311,6 +310,7 @@ class AuthController extends Controller {
                 }
             }
         }
+        return;
 
 // render
         return $this->render("profile", [

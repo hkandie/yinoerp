@@ -1029,7 +1029,7 @@ if ($dbType == "mysql") {
 		'clearance' => 'VARCHAR(25) NULL',
 		'bank_account_id' => 'INT(12) NULL',
 		'sync_receipt_number_cb' => 'TINYINT(1) NULL',
-		'status' => 'ENUM(\'active\',\'inactive\',\'\',\'\') NULL',
+		'status' => 'ENUM(\'active\',\'inactive\',\'\') NULL',
 		'created_by' => 'INT(12) NOT NULL',
 		'creation_date' => 'DATETIME NULL',
 		'last_update_by' => 'INT(12) NOT NULL',
@@ -1168,7 +1168,7 @@ if ($dbType == "mysql") {
 		'clearance' => 'VARCHAR(25) NULL',
 		'bank_account_id' => 'INT(12) NULL',
 		'sync_receipt_number_cb' => 'TINYINT(1) NULL',
-		'status' => 'ENUM(\'active\',\'inactive\',\'\',\'\') NULL',
+		'status' => 'ENUM(\'active\',\'inactive\',\'\') NULL',
 		'created_by' => 'INT(12) NOT NULL',
 		'creation_date' => 'DATETIME NULL',
 		'last_update_by' => 'INT(12) NOT NULL',
@@ -1392,7 +1392,7 @@ if ($dbType == "mysql") {
 		'description' => 'VARCHAR(256) NULL',
 		'cm_type_id' => 'INT(12) NULL',
 		'payment_term_id' => 'INT(12) NULL',
-		'status' => 'ENUM(\'active\',\'inactive\',\'\',\'\') NULL',
+		'status' => 'ENUM(\'active\',\'inactive\',\'\') NULL',
 		'create_clearing_cb' => 'TINYINT(1) NULL',
 		'created_by' => 'INT(12) NOT NULL',
 		'creation_date' => 'DATETIME NULL',
@@ -1416,7 +1416,7 @@ if ($dbType == "mysql") {
 		'description' => 'VARCHAR(256) NULL',
 		'cm_type_id' => 'INT(12) NULL',
 		'payment_term_id' => 'INT(12) NULL',
-		'status' => 'ENUM(\'active\',\'inactive\',\'\',\'\') NULL',
+		'status' => 'ENUM(\'active\',\'inactive\',\'\') NULL',
 		'receivable_ac_id' => 'INT(12) NULL',
 		'revenue_ac_id' => 'INT(12) NULL',
 		'freight_ac_id' => 'INT(12) NULL',
@@ -2661,23 +2661,23 @@ $this->createIndex('idx_UNIQUE_am_asset_id_3174_04','am_activity_reference','am_
 $this->createIndex('idx_UNIQUE_priority_3174_05','am_activity_reference','priority',1);
 $this->createIndex('idx_UNIQUE_am_asset_id_3174_06','am_activity_reference','am_asset_id',1);
 $this->createIndex('idx_UNIQUE_asset_number_3396_07','am_asset','asset_number',1);
-$this->createIndex('idx_UNIQUE_tag_number_3396_08','am_asset','tag_number',1);
+$this->createIndex('idx_UNIQUE_tag_number_3396_08','am_asset','tag_number',0);
 $this->createIndex('idx_UNIQUE_asset_number_3397_09','am_asset','asset_number',1);
 $this->createIndex('idx_UNIQUE_schedule_name_363_10','am_maintenance_schedule','schedule_name',1);
 $this->createIndex('idx_UNIQUE_type_3848_11','am_meter','type',1);
 $this->createIndex('idx_UNIQUE_am_maintenance_schedule_id_4054_12','am_ms_activity_reference','am_maintenance_schedule_id',1);
-$this->createIndex('idx_UNIQUE_am_maintenance_schedule_id_4251_13','am_ms_calendar_date','am_maintenance_schedule_id',1);
+$this->createIndex('idx_UNIQUE_am_maintenance_schedule_id_4251_13','am_ms_calendar_date','am_maintenance_schedule_id',0);
 $this->createIndex('idx_UNIQUE_base_interval_days_445_14','am_ms_date_rule','base_interval_days',1);
 $this->createIndex('idx_UNIQUE_am_maintenance_schedule_id_4677_15','am_ms_meter_rule','am_maintenance_schedule_id',1);
-$this->createIndex('idx_UNIQUE_am_wo_header_id_5179_16','am_wo_bom','am_wo_header_id',1);
-$this->createIndex('idx_UNIQUE_am_wo_header_id_5179_17','am_wo_bom','am_wo_header_id',1);
+$this->createIndex('idx_UNIQUE_am_wo_header_id_5179_16','am_wo_bom','am_wo_header_id',0);
+$this->createIndex('idx_UNIQUE_am_wo_header_id_5179_17','am_wo_bom','am_wo_header_id',0);
 $this->createIndex('idx_UNIQUE_am_wo_routing_line_id_5868_18','am_wo_routing_detail','am_wo_routing_line_id',1);
 $this->createIndex('idx_UNIQUE_am_wo_header_id_6112_19','am_wo_routing_line','am_wo_header_id',1);
 $this->createIndex('idx_UNIQUE_org_id_6428_20','ap_payable_control','org_id',1);
-$this->createIndex('idx_UNIQUE_payment_number_6684_21','ap_payment_header','payment_number',1);
+$this->createIndex('idx_UNIQUE_payment_number_6684_21','ap_payment_header','payment_number',0);
 $this->createIndex('idx_UNIQUE_ap_payment_interface_id_7142_22','ap_payment_interface','ap_payment_interface_id',1);
-$this->createIndex('idx_UNIQUE_ap_payment_header_id_7405_23','ap_payment_line','ap_payment_header_id',1);
-$this->createIndex('idx_UNIQUE_payment_process_7951_24','ap_payment_process','payment_process',1);
+$this->createIndex('idx_UNIQUE_ap_payment_header_id_7405_23','ap_payment_line','ap_payment_header_id',0);
+$this->createIndex('idx_UNIQUE_payment_process_7951_24','ap_payment_process','payment_process',0);
 $this->createIndex('idx_UNIQUE_term_name_817_25','ap_payment_terms','term_name',1);
 $this->createIndex('idx_UNIQUE_transaction_number_8852_26','ap_transaction_header','transaction_number',1);
 $this->createIndex('idx_UNIQUE_ap_transaction_header_id_9305_27','ap_transaction_line','ap_transaction_header_id',1);
@@ -2700,9 +2700,6 @@ $this->createIndex('idx_UNIQUE_ar_transaction_header_id_3466_43','ar_transaction
 $this->createIndex('idx_UNIQUE_ar_transaction_header_id_3887_44','ar_transaction_line','ar_transaction_header_id',1);
 $this->createIndex('idx_UNIQUE_transaction_source_4315_45','ar_transaction_source','transaction_source',1);
 $this->createIndex('idx_UNIQUE_ar_transaction_type_4586_46','ar_transaction_type','ar_transaction_type',1);
-$this->createIndex('idx_rule_name_4971_47','auth_item','rule_name',0);
-$this->createIndex('idx_type_4972_48','auth_item','type',0);
-$this->createIndex('idx_child_5148_49','auth_item_child','child',0);
 $this->createIndex('idx_UNIQUE_transaction_type_id_5568_50','bc_label_auto_trigger','transaction_type_id',1);
 $this->createIndex('idx_UNIQUE_label_type_58_51','bc_label_format_header','label_type',1);
 $this->createIndex('idx_UNIQUE_bc_label_format_header_id_6029_52','bc_label_format_line','bc_label_format_header_id',1);
@@ -2745,7 +2742,6 @@ $this->createIndex('idx_UNIQUE_sys_process_flow_action_id_7263_88','cc_co_proces
 $this->createIndex('idx_UNIQUE_template_name_753_89','cc_co_template_header','template_name',1);
 $this->createIndex('idx_UNIQUE_cc_co_template_header_id_7805_90','cc_co_template_line','cc_co_template_header_id',1);
 $this->createIndex('idx_UNIQUE_coa_name_8118_91','coa','coa_name',1);
-$this->createIndex('idx_UNIQUE_combination_8434_92','coa_combination','combination',1);
 $this->createIndex('idx_coa_id_8435_93','coa_combination','coa_id',0);
 $this->createIndex('idx_field1_8435_94','coa_combination','field1',0);
 $this->createIndex('idx_field2_8435_95','coa_combination','field2',0);
@@ -2758,24 +2754,15 @@ $this->createIndex('idx_field8_8437_01','coa_combination','field8',0);
 $this->createIndex('idx_coa_id_0433_02','coa_segment_values','coa_id',0);
 $this->createIndex('idx_coa_segments_0434_03','coa_segment_values','coa_segments',0);
 $this->createIndex('idx_coa_segment_values_id_0434_04','coa_segment_values','coa_segment_values_id',0);
-$this->createIndex('idx_comment_0877_05','comment','comment',0);
-$this->createIndex('idx_subject_0877_06','comment','subject',0);
 $this->createIndex('idx_UNIQUE_bom_header_id_1464_07','common_bom_line','bom_header_id',1);
 $this->createIndex('idx_UNIQUE_bom_header_id_1465_08','common_bom_line','bom_header_id',1);
-$this->createIndex('idx_subject_1697_09','content','subject',0);
 $this->createIndex('idx_UNIQUE_content_type_1925_10','content_type','content_type',1);
 $this->createIndex('idx_content_label_1926_11','content_type','content_label',0);
 $this->createIndex('idx_subject_label_1926_12','content_type','subject_label',0);
 $this->createIndex('idx_UNIQUE_content_type_id_2136_13','content_type_reference','content_type_id',1);
 $this->createIndex('idx_UNIQUE_bom_cost_type_2381_14','cst_item_cost_header','bom_cost_type',1);
  
-$this->execute('SET foreign_key_checks = 0');
-$this->addForeignKey('fk_auth_item_4756_00','{{%auth_assignment}}', 'item_name', '{{%auth_item}}', 'name', 'CASCADE', 'NO ACTION' );
-$this->addForeignKey('fk_auth_rule_4949_01','{{%auth_item}}', 'rule_name', '{{%auth_rule}}', 'name', 'CASCADE', 'NO ACTION' );
-$this->addForeignKey('fk_auth_item_5129_02','{{%auth_item_child}}', 'parent', '{{%auth_item}}', 'name', 'CASCADE', 'NO ACTION' );
-$this->addForeignKey('fk_auth_item_5129_03','{{%auth_item_child}}', 'child', '{{%auth_item}}', 'name', 'CASCADE', 'NO ACTION' );
-$this->addForeignKey('fk_coa_84_04','{{%coa_combination}}', 'coa_id', '{{%coa}}', 'coa_id', 'CASCADE', 'NO ACTION' );
-$this->execute('SET foreign_key_checks = 1;');
+
  
 $this->execute('SET foreign_key_checks = 0');
 $this->insert('{{%address}}',['address_id'=>'79','type'=>'INTERNATIONAL','address_name'=>'TEST11','mdm_tax_region_id'=>'','description'=>'Desc1111a','phone'=>'2102021','email'=>'test@gmail.com','website'=>'google.com','address'=>'LD13/54,

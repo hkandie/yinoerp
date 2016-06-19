@@ -1,0 +1,113 @@
+Message-ID: <bcc1296323e051763922e902f2a040bd@localhost>
+Date: Thu, 09 Jun 2016 09:44:06 +0200
+Subject: portal - Forgot password
+From: portal.admin@fly540.com
+To: hosea.kandie@fly540.com
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="_=_swift_v4_1465458246_23d269420538caa7067d7992df0487c1_=_"
+
+
+--_=_swift_v4_1465458246_23d269420538caa7067d7992df0487c1_=_
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+portal - Forgot password
+
+Hi Hosea Kandie,
+
+Please use this link to=
+ reset your password:
+G2G Innovate recently received a request for a forg=
+otten password.
+To change your G2G Innovate password, please click on thi=
+s link.
+If you did not request this change, you do not need to do anythin=
+g.
+This link will expire in 4 hours.
+
+http://localhost/finacc/user/au=
+th/reset?key=3DxQA4sZud78Z0s0pP4YKuEnLQ_zp6sGMG
+
+Thanks,
+
+G2G Innov=
+ate Support=20
+
+G2G Innovate
+
+--_=_swift_v4_1465458246_23d269420538caa7067d7992df0487c1_=_
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns=3D"http://www.w3.org/1999/=
+xhtml">
+    <head>
+        <meta http-equiv=3D"Content-Type" content=3D=
+"text/html; charset=3DUTF-8" />
+        <title></title>
+       =20
+    =
+    <style type=3D"text/css">
+            .box_border{
+                =
+border:1px solid #4596C9;
+                padding:10px;
+               =
+ width:100%;=20
+
+            }
+            .app_name{=09
+            =
+    font-size:22px;
+                color:#ff4001;
+                font=
+-weight:bold;
+                float:left;
+                margin: 30px =
+0 0 15px;
+            }
+
+        </style>
+    </head>
+    <body>=
+
+        <div class=3D"box_border">
+                       =20
+<h3>port=
+al - Forgot password</h3>
+
+<p>Hi Hosea Kandie,</p>
+<p>
+    Please u=
+se this link to reset your password:<br/>
+    G2G Innovate recently recei=
+ved a request for a forgotten password.<br/>
+    To change your G2G Innov=
+ate password, please click on this link.<br/>
+    <br/><br/>If you did no=
+t request this change, you do not need to do anything.
+    This link will=
+ expire in 4 hours.
+</p>
+<p>http://localhost/finacc/user/auth/reset?key=
+=3DxQA4sZud78Z0s0pP4YKuEnLQ_zp6sGMG</p>
+<br/>
+
+Thanks,
+<br/>
+G2G =
+Innovate Support=20
+                    </div>
+        <div class=3D"app_=
+name">
+            <hr/>
+            G2G Innovate        </div>
+    <=
+/body>
+</html>
+
+
+--_=_swift_v4_1465458246_23d269420538caa7067d7992df0487c1_=_--
