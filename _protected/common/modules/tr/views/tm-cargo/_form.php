@@ -31,7 +31,7 @@ $form = ActiveForm::begin([
                     <table>
                         <tr>
 
-                            <td style="width: 25%">
+                            <td style="width: 25%;vertical-align: top">
                                 <?php
                                 echo Form::widget([
                                     'model' => $model,
@@ -49,7 +49,7 @@ $form = ActiveForm::begin([
                                     ]
                                 ]);
                                 ?></td>
-                            <td style="width: 25%">
+                            <td style="width: 25%;vertical-align: top">
                                 <?php
                                 echo Form::widget([
                                     'model' => $model,
@@ -68,7 +68,7 @@ $form = ActiveForm::begin([
                                 ]);
                                 ?>
                             </td>
-                            <td style="width: 50%">
+                            <td style="width: 50%;vertical-align: top">
                                 <?php
                                 echo Form::widget([
                                     'model' => $model,

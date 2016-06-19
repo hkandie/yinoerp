@@ -128,38 +128,20 @@ class TmCargo extends \yii\db\ActiveRecord
             'company_id' => Yii::t('app', 'Company ID'),
         ];
     }
-    public static $physical_state_a = [
-        1 => 'Wet',
-        2 => 'Package Damaged',
-        3 => 'Seal Broken',
-        4 => 'Broken',
-        5 => 'Leaking',
-        6 => 'Repacked',
-        7 => 'Other (please specify)'];
-    public static $package_type_a = [
-        1 => 'Bale',
-        2 => 'Bundles',
-        3 => 'Cartons',
-        4 => 'Case',
-        5 => 'Drums',
-        6 => 'Big Bag',
-        7 => 'Barrel',
-        8 => 'Box',
-        9 => 'Parcel',
-        10 => 'Other (please specify)'];
-    public static $cargo_type_a = [
-        1 => 'Materials',
-        2 => 'Parts',
-        3 => 'Equipment',
-        4 => 'Food',
-        5 => 'Drinks',
-        6 => 'Cereals',
-        7 => 'Materials',
-        8 => 'Fruits',
-        9 => 'Detergents',
-        10 => 'Vegetables',
-        11 => 'Chemicals',
-        12 => 'Dangerous Goods',
-        13 => 'Other (please specify)'
-    ];
+    public static function get_transation_id() {
+        $txid=TmCargo::find()->select("cargo_id")->order_by("cargo desc")->one();
+        if ($txid) {
+            $txid = $txid->transaction_id++;
+            $c = substr($txid, strlen($txid) - 4);
+            $c++;
+            while (strpos($c, 'o') == true || strpos($c, '0') == true || strpos($c, 'O') == true || strpos($c, 'I') == true || strpos($c, '1') == true) {
+                $c++;
+            }
+            $txid = "C" . date("yM") . $c;
+        } else {
+            $txid = "C" . date("yM") . "2" . "AAA";
+        }
+
+        return strtoupper($txid);
+    }
 }

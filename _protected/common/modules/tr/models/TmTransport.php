@@ -99,4 +99,20 @@ class TmTransport extends \yii\db\ActiveRecord
             'company_id' => Yii::t('app', 'Company ID'),
         ];
     }
+    public static function get_transation_id() {
+        $txid=TmCargo::find()->select("transaction_id")->order_by("transaction_id desc")->one();
+        if ($txid) {
+            $txid = $txid->transaction_id++;
+            $c = substr($txid, strlen($txid) - 4);
+            $c++;
+            while (strpos($c, 'o') == true || strpos($c, '0') == true || strpos($c, 'O') == true || strpos($c, 'I') == true || strpos($c, '1') == true) {
+                $c++;
+            }
+            $txid = "C" . date("yM") . $c;
+        } else {
+            $txid = "T" . date("yM") . "2" . "AAA";
+        }
+
+        return strtoupper($txid);
+    }
 }

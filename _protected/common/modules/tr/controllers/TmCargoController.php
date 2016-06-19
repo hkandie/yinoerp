@@ -64,7 +64,7 @@ class TmCargoController extends Controller
     public function actionCreate()
     {
         $model = new TmCargo();
-
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {

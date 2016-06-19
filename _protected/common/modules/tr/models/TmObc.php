@@ -89,4 +89,20 @@ class TmObc extends \yii\db\ActiveRecord
             'company_id' => Yii::t('app', 'Company ID'),
         ];
     }
+    public static function get_obc_id() {
+        $txid=TmCargo::find()->select("obc_id")->order_by("obc_id desc")->one();
+        if ($txid) {
+            $txid = $txid->obc_id++;
+            $c = substr($txid, strlen($txid) - 4);
+            $c++;
+            while (strpos($c, 'o') == true || strpos($c, '0') == true || strpos($c, 'O') == true || strpos($c, 'I') == true || strpos($c, '1') == true) {
+                $c++;
+            }
+            $txid = "O" . date("yM") . $c;
+        } else {
+            $txid = "O" . date("yM") . "2" . "AAA";
+        }
+
+        return strtoupper($txid);
+    }
 }
