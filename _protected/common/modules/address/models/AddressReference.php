@@ -52,4 +52,8 @@ class AddressReference extends \yii\db\ActiveRecord
             'company_id' => Yii::t('app', 'Company ID'),
         ];
     }
+    public function getAddress() {
+        return $this->hasOne(\common\modules\address\models\Address::className(),
+                ['address_id' => 'reference_id']);
+    }
 }

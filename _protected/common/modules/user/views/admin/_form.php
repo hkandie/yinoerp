@@ -21,44 +21,7 @@ $role = Yii::$app->getModule("user")->model("Role");
 
 <div class="user-form">
 
-    <?php
-    $form = ActiveForm::begin();
-    echo FormGrid::widget([
-        'model' => $user,
-        'form' => $form,
-        'autoGenerateColumns' => true,
-        'rows' => [
-            [
-                'attributes' => [
-                    'username' => ['type' => Form::INPUT_TEXT,],
-                    'email' => ['type' => Form::INPUT_TEXT,],
-                    'status' => [
-                        'type' => Form::INPUT_DROPDOWN_LIST,
-                        'items' => [0 => "Active", 1 => "In Active"]
-                    ],
-                    'role_id' => [
-                        'type' => Form::INPUT_DROPDOWN_LIST,
-                        'items' => ArrayHelper::map(common\modules\user\models\Role::find()->orderBy('name')->asArray()->all(), 'id', 'name')
-                    ],
-                ],
-            ],
-        ]
-    ]);
-    echo FormGrid::widget([
-        'model' => $profile,
-        'form' => $form,
-        'autoGenerateColumns' => true,
-        'rows' => [
-            ['attributes' => [
-
-                    'first_name' => ['type' => Form::INPUT_TEXT,],
-                    'last_name' => ['type' => Form::INPUT_TEXT,],
-                    'phone' => ['type' => Form::INPUT_TEXT,],
-                ],
-            ],
-        ]
-    ]);
-    ?>
+    
     <?php
     $option_header_id = OptionHeader::findOne(["option_type" => "SYS_LANGUAGE"])->option_header_id;
     echo Form::widget([

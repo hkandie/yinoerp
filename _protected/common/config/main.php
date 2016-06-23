@@ -110,7 +110,6 @@ return [
         'ext' => ['class' => 'common\modules\ext\Ext',],
         'item' => ['class' => 'common\modules\item\Item',],
         'payment' => ['class' => 'common\modules\payment\Payment',],
-        'site' => ['class' => 'common\modules\site\Site',],
         'wip' => ['class' => 'common\modules\wip\Wip',],
         'rights' => [
             'class' => 'mdm\admin\Module',

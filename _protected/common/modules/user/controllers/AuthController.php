@@ -277,6 +277,8 @@ class AuthController extends Controller {
     public function actionProfile() {
         $user = \common\modules\user\models\User::find(Yii::$app->user->id)->one();
         $profile = $user->profile;
+        $addressReference= $user->addressReference;
+        $address= new \common\modules\address\models\Address;
 // load post data
         $post = Yii::$app->request->post();
         if ($user->load($post) && $user->validate() && $profile->load($post) && $profile->validate()) {
@@ -310,12 +312,11 @@ class AuthController extends Controller {
                 }
             }
         }
-        return;
-
-// render
-        return $this->render("profile", [
+         return $this->render("profile", [
                     'user' => $user,
                     'profile' => $profile,
+             'addressReference' => $addressReference,
+             'address' => $address,
         ]);
     }
 

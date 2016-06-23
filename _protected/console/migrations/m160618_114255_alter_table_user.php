@@ -7,7 +7,6 @@ class m160618_114255_alter_table_user extends Migration {
     public function up() {
 
         //$this->addColumn("_profile", "assigned_ip", "string(256) DEFAULT NULL");
-        $this->addColumn("_profile", "phone", "string(256) DEFAULT NULL");
         $this->addColumn("_profile", "user_language", "string(20) DEFAULT NULL");
         $this->addColumn("_profile", "date_format", "integer(1) NOT NULL DEFAULT '0'");
         $this->addColumn("_profile", "hr_employee_id", "integer(12) DEFAULT NULL");

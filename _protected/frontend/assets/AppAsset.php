@@ -29,14 +29,12 @@ class AppAsset extends AssetBundle {
     public $basePath = '@webroot';
     public $baseUrl = '@themes';
     public $css = [
-        'css/bootstrap.min.css',
         'css/site.css',
         'css/datepicker.css',
         'css/font-awesome.min.css',
     ];
     public $js = [
         'js/jquery-ui.js',
-        'js/bootstrap.min.js',
         'js/site.js',
         'js/momentjs.js',
         'js/datepicker.js',

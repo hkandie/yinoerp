@@ -216,8 +216,13 @@ class User extends ActiveRecord implements IdentityInterface {
     public function getUserAuths() {
         return $this->hasMany(UserAuth::className(), ['user_id' => 'user_id']);
     }
+
     public function getUsersOffice() {
         return $this->hasMany(UsersOffice::className(), ['user_id' => 'user_id']);
+    }
+    public function getAddressReference() {
+        return $this->hasMany(\common\modules\address\models\AddressReference::className(),
+                ['reference_id' => 'user_id']);
     }
 
     /**
@@ -500,11 +505,11 @@ class User extends ActiveRecord implements IdentityInterface {
         }
         return $dropdown;
     }
-    public function  checkUser($rule,$name){
-    return Yii::$app->user->can($rule)?
-            '<td>'. \yii\helpers\Html::a('</i>'.$name, [$rule]).'</td>'
-            :""
-            ;
-}
+
+    public function checkUser($rule, $name) {
+        return Yii::$app->user->can($rule) ?
+                '<td>' . \yii\helpers\Html::a('</i>' . $name, [$rule]) . '</td>' : ""
+        ;
+    }
 
 }

@@ -1,0 +1,113 @@
+Message-ID: <e99103c62c3f11513edc55239e227216@localhost>
+Date: Thu, 09 Jun 2016 10:13:06 +0200
+Subject: 540 Portal - Forgot password
+From: portal.admin@fly540.com
+To: hosea.kandie@fly540.com
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="_=_swift_v4_1465459986_1538c768696f6e7fcbd178f19ee12899_=_"
+
+
+--_=_swift_v4_1465459986_1538c768696f6e7fcbd178f19ee12899_=_
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+540 Portal - Forgot password
+
+Hi Hosea Kandie,
+
+Please use this lin=
+k to reset your password:
+540 Portal recently received a request for a fo=
+rgotten password.
+To change your 540 Portal password, please click on thi=
+s link.
+If you did not request this change, you do not need to do anythin=
+g.
+This link will expire in 4 hours.
+
+http://localhost/finacc/user/au=
+th/reset?key=3DbHLoiOQLR1MoEArwKCSaMV2v1reM1DWq
+
+Thanks,
+
+540 Porta=
+l Support=20
+
+540 Portal
+
+--_=_swift_v4_1465459986_1538c768696f6e7fcbd178f19ee12899_=_
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns=3D"http://www.w3.org/1999/=
+xhtml">
+    <head>
+        <meta http-equiv=3D"Content-Type" content=3D=
+"text/html; charset=3DUTF-8" />
+        <title></title>
+       =20
+    =
+    <style type=3D"text/css">
+            .box_border{
+                =
+border:1px solid #4596C9;
+                padding:10px;
+               =
+ width:100%;=20
+
+            }
+            .app_name{=09
+            =
+    font-size:22px;
+                color:#ff4001;
+                font=
+-weight:bold;
+                float:left;
+                margin: 30px =
+0 0 15px;
+            }
+
+        </style>
+    </head>
+    <body>=
+
+        <div class=3D"box_border">
+                       =20
+<h3>540 =
+Portal - Forgot password</h3>
+
+<p>Hi Hosea Kandie,</p>
+<p>
+    Plea=
+se use this link to reset your password:<br/>
+    540 Portal recently rec=
+eived a request for a forgotten password.<br/>
+    To change your 540 Por=
+tal password, please click on this link.<br/>
+    <br/><br/>If you did no=
+t request this change, you do not need to do anything.
+    This link will=
+ expire in 4 hours.
+</p>
+<p>http://localhost/finacc/user/auth/reset?key=
+=3DbHLoiOQLR1MoEArwKCSaMV2v1reM1DWq</p>
+<br/>
+
+Thanks,
+<br/>
+540 =
+Portal Support=20
+                    </div>
+        <div class=3D"app_na=
+me">
+            <hr/>
+            540 Portal        </div>
+    </bod=
+y>
+</html>
+
+
+--_=_swift_v4_1465459986_1538c768696f6e7fcbd178f19ee12899_=_--
