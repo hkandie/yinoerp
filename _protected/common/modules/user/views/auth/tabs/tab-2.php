@@ -8,7 +8,7 @@ $option_header_id = OptionHeader::findOne(["option_type" => "SYS_LANGUAGE"])->op
 echo Form::widget([
     'model' => $profile,
     'form' => $form,
-    'columns' => 3,
+    'columns' => 1,
     'attributes' => [
         'user_language' => ['type' => Form::INPUT_DROPDOWN_LIST, 'items' => [ArrayHelper::map(OptionLine::find()->where(["option_header_id" => $option_header_id])->all(), 'option_line_id', 'description')]],
         'default_theme' => ['type' => Form::INPUT_DROPDOWN_LIST, 'items' => [ArrayHelper::map(ExtnTheme::find()->all(), 'extn_theme_id', 'theme_name')]],

@@ -3,36 +3,26 @@
 
 use kartik\builder\FormGrid;
 use kartik\builder\Form;
-use yii\helpers\ArrayHelper;
 
-
-echo FormGrid::widget([
+echo Form::widget([
     'model' => $user,
     'form' => $form,
-    'autoGenerateColumns' => true,
-    'rows' => [
-        [
-            'attributes' => [
-                'username' => ['type' => Form::INPUT_TEXT,],
-                'email' => ['type' => Form::INPUT_TEXT,],
-                
-            ],
-        ],
+    'columns' => 1,
+    'attributes' => [
+        'username' => ['type' => Form::INPUT_TEXT,],
+        'email' => ['type' => Form::INPUT_TEXT,],
     ]
 ]);
-echo FormGrid::widget([
+echo Form::widget([
     'model' => $profile,
     'form' => $form,
-    'autoGenerateColumns' => true,
-    'rows' => [
-        ['attributes' => [
+    'columns' => 1,
+    'attributes' => [
 
-                'first_name' => ['type' => Form::INPUT_TEXT,],
-                'last_name' => ['type' => Form::INPUT_TEXT,],
-                'phone' => ['type' => Form::INPUT_TEXT,],
-            ],
-        ],
-    ]
+        'first_name' => ['type' => Form::INPUT_TEXT,],
+        'last_name' => ['type' => Form::INPUT_TEXT,],
+        'phone' => ['type' => Form::INPUT_TEXT,],
+    ],
 ]);
 ?>
 

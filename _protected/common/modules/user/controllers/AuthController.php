@@ -9,6 +9,7 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
+use common\modules\user\models\User;
 
 /**
  * Default controller for User module
@@ -275,14 +276,27 @@ class AuthController extends Controller {
      * Profile
      */
     public function actionProfile() {
-        $user = \common\modules\user\models\User::find(Yii::$app->user->id)->one();
+        $user = User::find(Yii::$app->user->id)->one();
         $profile = $user->profile;
-        $addressReference= $user->addressReference;
-        $address= new \common\modules\address\models\Address;
+        $addressReference = $user->addressReference;
+        $address = new \common\modules\address\models\Address;
+        if (Yii::$app->request->isAjax && $user->load(Yii::$app->request->post())) {
+            \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+           echo "Errors: " . json_encode($user);
+        }
+        if (Yii::$app->request->isAjax && $profile->load(Yii::$app->request->post())) {
+            \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return ActiveForm::validate($profile);
+        }
+        if (Yii::$app->request->isAjax && $address->load(Yii::$app->request->post())) {
+            \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return ActiveForm::validate($address);
+        }
+       
 // load post data
         $post = Yii::$app->request->post();
         if ($user->load($post) && $user->validate() && $profile->load($post) && $profile->validate()) {
-           
+
             $user->save(false);
             $profile->setUser($user->id)->save(false);
             $profile->avatar = \yii\web\UploadedFile::getInstance($profile, 'avatar');
@@ -312,11 +326,11 @@ class AuthController extends Controller {
                 }
             }
         }
-         return $this->render("profile", [
+        return $this->render("profile", [
                     'user' => $user,
                     'profile' => $profile,
-             'addressReference' => $addressReference,
-             'address' => $address,
+                    'addressReference' => $addressReference,
+                    'address' => $address,
         ]);
     }
 
@@ -460,6 +474,14 @@ class AuthController extends Controller {
         $user = $this->findModel($id);
         $user->setScenario("admin");
         $profile = $user->profile;
+        if (Yii::$app->request->isAjax && $user->load(Yii::$app->request->post())) {
+            \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return ActiveForm::validate($user);
+        }
+        if (Yii::$app->request->isAjax && $profile->load(Yii::$app->request->post())) {
+            \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return ActiveForm::validate($profile);
+        }
 
         // load post data and validate
         $post = Yii::$app->request->post();
@@ -470,7 +492,7 @@ class AuthController extends Controller {
         }
 
         // render
-        return $this->render('update', [
+        return $this->renderAjax('update', [
                     'user' => $user,
                     'profile' => $profile,
         ]);

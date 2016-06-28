@@ -1,6 +1,6 @@
 <?php
 
-use kartik\form\ActiveForm;
+use \kartik\widgets\ActiveForm;
 use yii\helpers\Html;
 use kartik\tabs\TabsX;
 
@@ -8,9 +8,9 @@ $this->title = Yii::t('user', $profile->first_name);
 $this->params['breadcrumbs'][] = $this->title;
 
 $form = ActiveForm::begin([
-            'options' => ['enctype' => 'multipart/form-data'],
-            'type' => ActiveForm::TYPE_HORIZONTAL,
-            'formConfig' => ['labelSpan' => 4]]);
+            'type' => ActiveForm::TYPE_VERTICAL,
+            'formConfig' => ['labelSpan' => 4],
+            'enableAjaxValidation' => true]);
 
 $items = [
     [
@@ -44,8 +44,8 @@ $items = [
     ],
     [
         'label' => '<i class="glyphicon glyphicon-user"></i> ' . Yii::t('app', 'Addresses'),
-        'content' => $this->render("tabs/tab-8", ["profile" => $profile, "form" => $form,'addressReference' => $addressReference,
-             'address' => $address,]),
+        'content' => $this->render("tabs/tab-8", ["profile" => $profile, "form" => $form, 'addressReference' => $addressReference,
+            'address' => $address,]),
     ],
     [
         'label' => '<i class="glyphicon glyphicon-user"></i>' . Yii::t('app', 'Company Details'),
@@ -94,7 +94,7 @@ $items = [
 
     <div class="form-group">
         <div class="col-lg-offset-2 col-lg-10">
-            <?= Html::submitButton($user->isNewRecord ? Yii::t('user', 'Create') : Yii::t('user', 'Update'), ['class' => $user->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+            <?= Html::submitButton($user->isNewRecord ? Yii::t('user', 'Create') : Yii::t('user', 'Update'), ["onclick"=>"javascript:save(this)",'class' => $user->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
 
         </div>
     </div>
@@ -107,3 +107,20 @@ $items = [
 
 
 
+
+<script>
+    function save(e) {
+        var str = $("#w0").serialize();
+        var url = $("#w0").attr("action");
+        $(".progress").html("Please wait... loading");
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: str,
+            success: function (data) {
+                $(".progress").html('');
+                $("#status").html(data);
+            }
+        });
+    }
+</script>
