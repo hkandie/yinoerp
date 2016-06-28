@@ -9,8 +9,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 $form = ActiveForm::begin([
             'type' => ActiveForm::TYPE_VERTICAL,
-            'formConfig' => ['labelSpan' => 4],
-            'enableAjaxValidation' => true]);
+            'formConfig' => ['labelSpan' => 4],]);
 
 $items = [
     [
@@ -49,7 +48,7 @@ $items = [
     ],
     [
         'label' => '<i class="glyphicon glyphicon-user"></i>' . Yii::t('app', 'Company Details'),
-        'content' => $this->render("tabs/tab-9", ["profile" => $profile, "form" => $form]),
+        'content' => $this->render("tabs/tab-9", ["org" => $org, "form" => $form]),
     ],
 ];
 ?>
@@ -65,36 +64,12 @@ $items = [
 <hr/>
 
 
-<?php
-$items = [
-    [
-        'label' => '<i class="glyphicon glyphicon-home"></i>' . Yii::t('user', 'Role Control'),
-        'content' => $this->render("tabs/role-control", ["profile" => $profile, "form" => $form, 'user' => $user]),
-        'active' => true
-    ],
-    [
-        'label' => '<i class="glyphicon glyphicon-user"></i> ' . Yii::t('user', 'User Group Assignment'),
-        'content' => $this->render("tabs/user-group-assignment", ["profile" => $profile, "form" => $form]),
-    ],
-];
-?>
-<div class="row">
-    <span class="heading"><?php echo Yii::t('user', 'User Access Details') ?></span>
-    <?php
-    echo TabsX::widget([
-        'items' => $items,
-        'position' => TabsX::POS_ABOVE,
-        'encodeLabels' => false
-    ]);
-    ?>
-</div>
-
 <div class="col-md-9">
 
 
     <div class="form-group">
         <div class="col-lg-offset-2 col-lg-10">
-            <?= Html::submitButton($user->isNewRecord ? Yii::t('user', 'Create') : Yii::t('user', 'Update'), ["onclick"=>"javascript:save(this)",'class' => $user->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+            <?= Html::submitButton($user->isNewRecord ? Yii::t('user', 'Create') : Yii::t('user', 'Update'), ['class' => $user->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
 
         </div>
     </div>
@@ -107,20 +82,3 @@ $items = [
 
 
 
-
-<script>
-    function save(e) {
-        var str = $("#w0").serialize();
-        var url = $("#w0").attr("action");
-        $(".progress").html("Please wait... loading");
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: str,
-            success: function (data) {
-                $(".progress").html('');
-                $("#status").html(data);
-            }
-        });
-    }
-</script>

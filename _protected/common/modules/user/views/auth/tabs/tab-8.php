@@ -5,16 +5,37 @@ use kartik\builder\Form;
 use \common\modules\option\models\OptionHeader;
 use \common\modules\option\models\OptionLine;
 use yii\helpers\ArrayHelper;
+use yii\widgets\DetailView;
 ?>
 <div class="col-md-5">
     <?php
-    if (count($addressReference)) {
-        
+    if (count($addressReference) > 0) {
+        foreach ($addressReference as $ar) {
+            $addrs = $ar->address;
+            echo DetailView::widget([
+                'model' => $addrs,
+                'attributes' => [
+                    'address_name',
+                    'type',
+                    'description',
+                    'phone',
+                    'email:email',
+                    'website:url',
+                    'address',
+                    'country',
+                    'postal_code',
+                    'default_cb',
+                    'status:boolean',
+                    'optionLine.description',
+                    'rev_number'
+                ]
+            ]);
+        }
     }
     ?>
 </div>
 <div class="col-md-1" style="border-right: 1px solid #000">
-    
+
 </div>
 <div class="col-md-6">
     <?php
@@ -37,7 +58,7 @@ use yii\helpers\ArrayHelper;
             'postal_code' => ['type' => Form::INPUT_TEXT,],
             'default_cb' => ['type' => Form::INPUT_TEXT,],
             'status' => ['type' => Form::INPUT_TEXT,],
-            'usage_type' => ['type' => Form::INPUT_DROPDOWN_LIST,"placeholder"=>"--Select--", 'items' => [ArrayHelper::map(OptionLine::find()->where(["option_header_id" => $option_header_id])->all(), 'option_line_id', 'description')]],
+            'usage_type' => ['type' => Form::INPUT_DROPDOWN_LIST, "placeholder" => "--Select--", 'items' => [ArrayHelper::map(OptionLine::find()->where(["option_header_id" => $option_header_id])->all(), 'option_line_id', 'description')]],
             'rev_number' => ['type' => Form::INPUT_TEXT,]
         ],
     ]);

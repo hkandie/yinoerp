@@ -9,8 +9,8 @@ echo Form::widget([
     'form' => $form,
     'columns' => 1,
     'attributes' => [
-        'username' => ['type' => Form::INPUT_TEXT,],
-        'email' => ['type' => Form::INPUT_TEXT,],
+        'username' => ['type' => Form::INPUT_STATIC,],
+        'email' => ['type' => Form::INPUT_STATIC,],
     ]
 ]);
 echo Form::widget([
@@ -18,7 +18,6 @@ echo Form::widget([
     'form' => $form,
     'columns' => 1,
     'attributes' => [
-
         'first_name' => ['type' => Form::INPUT_TEXT,],
         'last_name' => ['type' => Form::INPUT_TEXT,],
         'phone' => ['type' => Form::INPUT_TEXT,],

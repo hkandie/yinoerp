@@ -54,6 +54,7 @@ class AddressReference extends \yii\db\ActiveRecord
     }
     public function getAddress() {
         return $this->hasOne(\common\modules\address\models\Address::className(),
-                ['address_id' => 'reference_id']);
+                ['address_id' => 'address_id']);
     }
+    
 }

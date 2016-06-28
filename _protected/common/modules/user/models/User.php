@@ -90,6 +90,7 @@ class User extends ActiveRecord implements IdentityInterface {
             [['email', 'username'], 'unique'],
             [['email', 'username'], 'filter', 'filter' => 'trim'],
             [['email'], 'email'],
+            [['username'], 'required'],
             // password rules
             [['newPassword'], 'string', 'min' => 3],
             [['newPassword'], 'filter', 'filter' => 'trim'],
@@ -223,6 +224,10 @@ class User extends ActiveRecord implements IdentityInterface {
     public function getAddressReference() {
         return $this->hasMany(\common\modules\address\models\AddressReference::className(),
                 ['reference_id' => 'user_id']);
+    }
+    public function getOrg() {
+        return $this->hasOne(\common\modules\org\models\Org::className(),
+                ['org_id' => 'company_id']);
     }
 
     /**

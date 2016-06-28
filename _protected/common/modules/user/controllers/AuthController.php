@@ -278,11 +278,15 @@ class AuthController extends Controller {
     public function actionProfile() {
         $user = User::find(Yii::$app->user->id)->one();
         $profile = $user->profile;
+        $org = $user->org;
+        if (count($org) == 0) {
+            $org = new \common\modules\org\models\Org;
+        }
         $addressReference = $user->addressReference;
         $address = new \common\modules\address\models\Address;
         if (Yii::$app->request->isAjax && $user->load(Yii::$app->request->post())) {
             \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-           echo "Errors: " . json_encode($user);
+            echo "Errors: " . json_encode($user);
         }
         if (Yii::$app->request->isAjax && $profile->load(Yii::$app->request->post())) {
             \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
@@ -292,13 +296,33 @@ class AuthController extends Controller {
             \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             return ActiveForm::validate($address);
         }
-       
+
 // load post data
         $post = Yii::$app->request->post();
         if ($user->load($post) && $user->validate() && $profile->load($post) && $profile->validate()) {
 
             $user->save(false);
             $profile->setUser($user->id)->save(false);
+            if ($address->load($post) && $address->validate()) {
+                $address->created_by = Yii::$app->user->id;
+                $address->last_update_by = Yii::$app->user->id;
+                //$address->save();
+                $addressRef = new \common\modules\address\models\AddressReference;
+                $addressRef->reference_table = "user";
+                $addressRef->address_id = $address->address_id;
+                $addressRef->reference_id = $user->id;
+                //$addressRef->save();
+            }
+            $org->load($post);
+            $org->type = "ENTERPRISE";
+            $org->created_by = Yii::$app->user->id;
+            $org->last_update_by = Yii::$app->user->id;
+            if ($org->validate()) {
+                $org->save();
+                $user->company_id = $org->org_id;
+                $user->save(false);
+                
+            }
             $profile->avatar = \yii\web\UploadedFile::getInstance($profile, 'avatar');
             $old_photo = "";
             if ($profile->avatar == NULL) {
@@ -331,6 +355,7 @@ class AuthController extends Controller {
                     'profile' => $profile,
                     'addressReference' => $addressReference,
                     'address' => $address,
+                    'org' => $org,
         ]);
     }
 

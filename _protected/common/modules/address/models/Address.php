@@ -46,7 +46,7 @@ class Address extends \yii\db\ActiveRecord
         return [
             [['mdm_tax_region_id', 'default_cb', 'rev_number', 'created_by', 'last_update_by', 'company_id'], 'integer'],
             [['address'], 'string'],
-            [['created_by', 'last_update_by'], 'required'],
+            [['address_name'], 'unique'],
             [['creation_date', 'last_update_date'], 'safe'],
             [['type', 'postal_code', 'status'], 'string', 'max' => 20],
             [['address_name', 'phone'], 'string', 'max' => 50],
@@ -85,5 +85,9 @@ class Address extends \yii\db\ActiveRecord
             'last_update_date' => Yii::t('app', 'Last Update Date'),
             'company_id' => Yii::t('app', 'Company ID'),
         ];
+    }
+    public function getOptionLine() {
+        return $this->hasOne(\common\modules\option\models\OptionLine::className(),
+                ['option_line_id' => 'usage_type']);
     }
 }
