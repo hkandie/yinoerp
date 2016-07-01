@@ -8,7 +8,7 @@ use common\modules\block\models\Block;
                                 <li>
                                     <h2>Notifications</h2>
                                     <?php
-                                    $block_i = Block::findOne('55');
+                                   // $block_i = Block::findOne('55');
 //                                    if ($block_i->reference_table === 'block_content') {
 //                                        $block_content_details = BlockContent::findOne($block_id);
 //                                        $block_content = $block_content_details->content;
@@ -23,7 +23,7 @@ use common\modules\block\models\Block;
                                 <li>
                                     <h2>Recent Comments</h2>
                                     <?php
-                                    $block_i = Block::findOne('52');
+                                    //$block_i = Block::findOne('52');
 //                                    if ($block_i->reference_table === 'block_content') {
 //                                        $block_content_details = BlockContent::findOne(52);
 //                                        $block_content = $block_content_details->content;

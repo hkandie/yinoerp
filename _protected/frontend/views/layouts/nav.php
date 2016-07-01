@@ -1,12 +1,9 @@
 <?php
 
-use kartik\helpers\Html;
+
 use yii\helpers\Url;
-use frontend\assets\AppAsset;
 use yii\bootstrap\NavBar;
 use kartik\nav\NavX;
-use yii\widgets\Breadcrumbs;
-use kartik\widgets\Select2;
 
 $search = $this->render("search");
 $this->beginBody();

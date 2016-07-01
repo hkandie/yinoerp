@@ -1,7 +1,10 @@
 <?php
 
 $params = array_merge(
-        require(__DIR__ . '/../../common/config/params.php'), require(__DIR__ . '/../../common/config/params-local.php'), require(__DIR__ . '/params.php'), require(__DIR__ . '/params-local.php')
+        require(__DIR__ . '/../../common/config/params.php'),
+        require(__DIR__ . '/../../common/config/params-local.php'), 
+        require(__DIR__ . '/params.php'), 
+        require(__DIR__ . '/params-local.php')
 );
 
 return [
@@ -13,7 +16,7 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=127.0.0.1;dbname=inoerp',
+            'dsn' => 'mysql:host=127.0.0.1;dbname=yinoerp',
             'username' => 'root',
             'password' => 'Rolexe540',
             'tablePrefix' => '',
@@ -34,7 +37,7 @@ return [
             'loginUrl' => ['/user/auth/login'],
         ],
         'request' => [
-            'cookieValidationKey' => '9cd134018cf57953c56003bcd6679dbdb8f004f2',
+            'cookieValidationKey' => '9cd134018cf57953c56003bcd6679db12db8f004f2',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

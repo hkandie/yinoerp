@@ -30,15 +30,24 @@ class AppAsset extends AssetBundle {
     public $baseUrl = '@themes';
     public $css = [
         'css/site.css',
+        'css/bootstrap.min.css',
         'css/datepicker.css',
         'css/font-awesome.min.css',
+        'css/animate.min.css',
+        'css/main.css',
+        'css/prettyPhoto.css',
     ];
     public $js = [
         'js/jquery-ui.js',
+        'js/bootstrap.min.js',
         'js/site.js',
         'js/momentjs.js',
         'js/datepicker.js',
-        'js/humanize.js'
+        'js/humanize.js',
+        'js/jquery.prettyPhoto.js',
+        'js/jquery.isotope.min.js',
+        'js/main.js',
+        'js/wow.min.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
